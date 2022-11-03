@@ -63,8 +63,8 @@ const HomeScreen = () => {
           </Svg>
         </View>
         <View style={{flex:1}}>
-          <Text style={{color: '#85BD3A', fontWeight: 'bold', textAlign: 'center', marginTop: 0, fontSize: 18}}>EASY<Text style={{color: '#292D32'}}>FOOD</Text></Text>
-          <Text style={{textAlign: 'center', opacity: .3}}>Online Recipes</Text>
+          <Text style={{fontFamily: 'Quicksand-SemiBold', color: '#85BD3A', fontWeight: 'bold', textAlign: 'center', marginTop: 0, fontSize: 18}}>EASY<Text style={{color: '#292D32'}}>FOOD</Text></Text>
+          <Text style={{textAlign: 'center', opacity: .3, fontFamily: 'Quicksand-Medium'}}>Online Recipes</Text>
         </View>
         <View>
         <Svg
@@ -92,7 +92,7 @@ const HomeScreen = () => {
                 <Pressable style={{borderRadius: 12}} android_ripple={{ color: 'white', foreground: true}} key={item.id}>
                 <ImageBackground resizeMode="cover" imageStyle={{borderRadius: 12, opacity: 0.7}} style={{width: 288, height: 192, marginRight: 15, backgroundColor: '#000', borderRadius: 12}} source={FoodImage}>
                   <View>
-                    <Text style={{marginTop: 16, marginLeft: 16, fontSize: 18, fontWeight: 'bold', color: '#fff'}}>{item.title}</Text>
+                    <Text style={{marginTop: 16, marginLeft: 16, fontSize: 18, fontWeight: 'bold', color: '#fff', fontFamily: 'Quicksand-Medium'}}>{item.title}</Text>
                   </View>
                     </ImageBackground>
                 </Pressable>
@@ -105,11 +105,11 @@ const HomeScreen = () => {
             {foodTypes.map( (item) => {
               return (
                   <TouchableOpacity key={item.id} onPress={()=> {setSelectedFilter(item.id)}}
-                  style={{paddingHorizontal: 12, borderWidth: 0.5, borderColor: (selectedFilter === item.id) ? '#fff' : '#AAAAAC', borderRadius: 999, marginRight: 8, flexDirection: 'row',
+                  style={{paddingHorizontal: 12, borderWidth: 1, borderColor: (selectedFilter === item.id) ? '#fff' : 'rgba(170, 170, 172, 0.3)', borderRadius: 999, marginRight: 8, flexDirection: 'row',
                   backgroundColor: (selectedFilter === item.id) ? '#85BC3C' : 'transparent'
                   }}
                   >
-                    <Text style={{color: (selectedFilter === item.id) ? '#fff' : '#AAAAAC', paddingVertical: 6}}>{item.title}</Text>
+                    <Text style={{color: (selectedFilter === item.id) ? '#fff' : '#AAAAAC', paddingVertical: 6, paddingTop: 4, fontFamily: 'Quicksand-Regular'}}>{item.title}</Text>
                     {/* <View style={{width: 0.5, height: '100%', backgroundColor: '#AAAAAC', marginRight: 4}}></View> */}
                     {/* <View></View> */}
                   </TouchableOpacity>
@@ -127,7 +127,7 @@ const HomeScreen = () => {
                     {item.new && <Text style={{position: 'absolute', right: 0, backgroundColor: '#84BD38', paddingHorizontal: 16, paddingVertical: 8, color: '#fff', borderBottomLeftRadius: 12, fontWeight: '400'}}>New</Text>}
                     <Image source={FoodImage2} style={{width: 96, height: 96, borderRadius: 12}} />
                     <View style={{marginLeft: 8, marginVertical: 4, justifyContent: 'space-between'}}>
-                      <Text style={{fontWeight: '500'}}>{item.title}</Text>
+                      <Text style={{fontWeight: '500', fontFamily: 'Quicksand-SemiBold'}}>{item.title}</Text>
                       <View style={{flexDirection: 'row'}}>
                         <View style={{marginRight: 16, flexDirection: 'row', alignItems: 'center'}}>
                             <Svg
@@ -143,7 +143,7 @@ const HomeScreen = () => {
                                 scale={0.725}
                               />
                               </Svg>
-                              <Text style={{fontSize: 12, color: '#ABAAAF'}}>{item.rating} (5)</Text>
+                              <Text style={{fontSize: 12, color: '#ABAAAF', fontFamily: 'Dosis-Medium'}}>{item.rating} (5)</Text>
                           </View>
                         <View style={{marginRight: 16, flexDirection: 'row', alignItems: 'center'}}>
                           <Svg
@@ -160,7 +160,7 @@ const HomeScreen = () => {
 
                             />
                           </Svg>
-                          <Text style={{fontSize: 12, color: '#ABAAAF'}}>{item.kcal} Kcal</Text>
+                          <Text style={{fontSize: 12, color: '#ABAAAF',  fontFamily: 'Dosis-Medium'}}>{item.kcal} Kcal</Text>
                           </View>
                         <View style={{marginRight: 16, flexDirection: 'row', alignItems: 'center'}}>
                           <Svg
@@ -176,13 +176,13 @@ const HomeScreen = () => {
                               scale={0.725}
                             />
                           </Svg>
-                          <Text style={{fontSize: 12, color: '#ABAAAF'}}>{item.time}</Text>
+                          <Text style={{fontSize: 12, color: '#ABAAAF',  fontFamily: 'Dosis-Medium'}}>{item.time}</Text>
                           </View>
                       </View>
                       <View style={{flexDirection: 'row'}}>
-                        <Text style={{paddingHorizontal: 12, paddingVertical: 4, borderRadius: 999, fontSize: 12, 
+                        <Text style={{paddingHorizontal: 12, paddingVertical: 4, borderRadius: 999, fontSize: 12,
                           color: '#fff', backgroundColor:{'Easy': 'rgb(152, 198, 10)', 'Medium': 'rgb(242, 160, 65)', 'Hard' : 'rgb(253, 42, 49)'}[item.level]}}>{item.level}</Text>
-                        <Text style={{marginLeft: 8, paddingHorizontal: 12, paddingVertical: 4, borderRadius: 999, fontSize: 12, 
+                        <Text style={{marginLeft: 8, paddingHorizontal: 12, paddingVertical: 4, borderRadius: 999, fontSize: 12,
                           color:{'Easy': 'rgb(152, 198, 10)', 'Medium': 'rgb(242, 160, 65)', 'Hard' : 'rgb(253, 42, 49)'}[item.level],
                           backgroundColor:{'Easy': 'rgba(152, 198, 10, 0.1)', 'Medium': 'rgba(242, 160, 65, 0.1)', 'Hard' : 'rgba(253, 42, 49, 0.1)'}[item.level]}}>{item.steps} Steps</Text>
                       </View>
